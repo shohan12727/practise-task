@@ -45,25 +45,26 @@ for (var i = 1; i <= lastDay; i++) {
 var fileName= "pdfData.jpg";
 //write your code here
 
-if(fileName.startsWith('#')){
+if (fileName.slice(0, 1) === '#') {
   console.log('Store');
-  
-} else if (fileName.endsWith('.docx')) {
+
+} else if (fileName.slice(-4) === '.pdf') {
   console.log('Store');
-  
-} else if (fileName.endsWith('.pdf')){
+
+} else if (fileName.slice(-5) === '.docx') {
   console.log('Store');
-  
+
 } else {
   console.log('Delete');
-  
+
 }
 
 
 
 
+
 /** Problem 05 - ( PH Email Generator )  */
-var student= { name: "jhankar" , roll: 1014 ,department: "cse" };
+var student = { name: "jhankar", roll: 1014, department: "cse" };
 //write your code here
 
 var email = student.name + student.roll + "." + student.department + "@ph.ac.bd";
@@ -79,9 +80,9 @@ var experience = 30;
 var startingSalary = 45000;
 //write your code here
 
-var increasingRate = 5/100;
+var increasingRate = 5 / 100;
 
-var presentSalary  = startingSalary * Math.pow((1+increasingRate), experience)
+var presentSalary = startingSalary * Math.pow((1 + increasingRate), experience)
 
 var forFixed = presentSalary.toFixed(2);
 
