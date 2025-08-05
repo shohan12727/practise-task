@@ -1,50 +1,60 @@
 const express = require('express');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
 const port = process.env.PORT || 3000;
-// db
 const { MongoClient, ServerApiVersion } = require("mongodb");
+
 const uri = "mongodb+srv://kingshohan:kingshohan@cluster0.alsn6h3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-
-//middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-//db userName: kingshohan
-//db password: kingshohan
+// MongoDB client setup
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
     deprecationErrors: true
   }
-})
+});
 
+let usersCollection; // global variable to hold collection
 
-app.get('/', (req, res) => {
-  res.send("King Shohan")
-})
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-// db fucntion call
-
+// Connect and start the server
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged!! I deployment. I successfully connected to MongoDB!")
+    const database = client.db('userdb');
+    usersCollection = database.collection('users');
 
-  }
-  finally {
-    // Ensures that the client will close when you finish error
-    await client.close();
+    // Ping for confirmation
+    await client.db("admin").command({ ping: 1 });
+    console.log("✅ Connected to MongoDB");
+  } catch (err) {
+    console.error("❌ MongoDB connection failed:", err);
   }
 }
 
-run().catch(console.dir);
+run();
+
+// Express routes
+app.get('/', (req, res) => {
+  res.send("King Shohan");
+});
+
+app.post('/users', async (req, res) => {
+  try {
+    const newUser = req.body;
+    console.log('📥 Received user:', newUser);
+    const result = await usersCollection.insertOne(newUser);
+    res.send(result);
+  } catch (err) {
+    console.error("❌ Error inserting user:", err);
+    res.status(500).send({ error: "Failed to insert user" });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`🚀 Server running on http://localhost:${port}`);
+});
