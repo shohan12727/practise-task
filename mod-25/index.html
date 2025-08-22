@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Event</h1>
+  <div style="text-align: center;">
+    <button onclick="makeYellow()">Make Yellow</button>
+    <button onclick="makeRed()">Make red</button>
+    <button id="blue">Make blue</button>
+    <button id="purple">Make Purple</button>
+    <button id="make_btn_gold">Make Gold</button>
+  </div>
+  <script>
+
+   const goldbtn = document.getElementById("make_btn_gold").addEventListener('mouseover', 
+    function makeGold () {
+      document.body.style.backgroundColor = ('gold');
+    }
+   ) 
+   
+
+
+
+
+
+
+
+    const makeBtnPurple = document.getElementById("purple");
+    console.log(makeBtnPurple.innerText);
+
+    makeBtnPurple.onclick = makePurple;
+    function makePurple() {
+      document.body.style.backgroundColor = 'purple';
+    }
+
+
+
+
+
+    const makeBlueBtn = document.getElementById("blue");
+    makeBlueBtn.onclick = function makeBlue() {
+      document.body.style.backgroundColor = 'blue';
+    }
+    function makeYellow() {
+      document.body.style.backgroundColor = 'yellow';
+    }
+    function makeRed() {
+      document.body.style.backgroundColor = 'red';
+    }
+  </script>
+</body>
+
+</html>
