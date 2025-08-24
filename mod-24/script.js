@@ -13,7 +13,7 @@ for (let i = 0; i < dummyPassage.length; i++) {
 }
 
 let getAllList = document.getElementsByTagName('li');
-console.log(getAllList);
+// console.log(getAllList);
 
 const newLi = document.createElement('li');
 
@@ -21,3 +21,16 @@ newLi.innerText = 'Russsia';
 
 let parentUl = document.querySelector('ul');
 parentUl.appendChild(newLi);
+
+
+
+// query selector 
+
+let name = document.querySelector("section div h1.name");
+name.innerText = "Ultra king Shohan"
+name.style.textAlign = 'center';
+name.style.fontSize = '40px'
+
+
+console.log(document.getElementsByClassName('name')[0].parentNode.parentNode.
+  parentNode.parentNode.parentNode);
