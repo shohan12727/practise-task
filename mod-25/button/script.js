@@ -1,0 +1,19 @@
+let click_btn = document.getElementById("click_btn");
+// console.log(click_btn);
+
+click_btn.style.display = 'block';
+click_btn.style.marginLeft = 'auto';
+click_btn.style.marginRight = 'auto';
+
+function makeYellow() {
+  document.body.style.backgroundColor = 'yellow';
+}
+
+function changeText() {
+  document.getElementById('name').innerText = 'King Shohan';
+}
+
+function randomBackground() {
+  const colors = ['red', 'blue', 'green', 'purple', 'orange', 'pink'];
+  document.body.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+}
