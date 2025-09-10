@@ -12,4 +12,4 @@ function three() {
 
 setTimeout(three, 5000)
 
-setInterval(three,1000)
+setInterval(three, 1000)
