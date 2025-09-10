@@ -6,5 +6,5 @@ Promise.all([api1, api2, api3]).then(results => {
   console.log(results);
 }).catch(err => {
   console.log('failed', err);
-})     
-// Here, Promise.all function there is an arrow and after that i called .then() function and after that for catching error .catch() 
+})
+// Here, Promise.all function there is an arrow and after that i called .then() function and after that for catching error .catch()  
