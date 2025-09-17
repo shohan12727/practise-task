@@ -1,20 +1,32 @@
 import './App.css'
-
+import ToDo from './ToDo'
 function App() {
 
   return (
     <>
       <h1>King Shohan</h1>
+      <ToDo task="learn react"></ToDo>
+      <Salami event="rojar eid"></Salami>
       <Student></Student>
       <Student></Student>
-      {/* <Person></Person>
+      <Person></Person>
+      <Developer name="Mojnu" tech="javaScript"></Developer>
+      <Developer name="Rajon" tech="Python"></Developer>
+      <Developer name="Sabana" tech="C"></Developer>
+      <Person></Person>
       <Person></Person>
       <Sports></Sports>
-      <Person></Person> */}
       <Person></Person>
-      <Developer></Developer>
-      <Developer></Developer>
     </>
+  )
+}
+
+
+function Salami({ event }) {
+  return (
+    <div>
+      <p>Salami for: {event}</p>
+    </div>
   )
 }
 
@@ -28,17 +40,21 @@ function Student() {
 }
 
 
-function Developer () {
+function Developer(props) {
+  console.log(props);
+
   return (
     <div style={{
-        border: '2px solid green',
-        borderRadius: '20px'
+      border: '2px solid green',
+      borderRadius: '20px'
     }}>
-      <h3>Developer: </h3>
-      <p>Technology: </p>
+      <h3>Developer: {props.name}</h3>
+      <p>Technology: {props.tech}</p>
     </div>
   )
 }
+
+
 
 
 function Person() {
