@@ -5,7 +5,9 @@ function App() {
   return (
     <>
       <h1>King Shohan</h1>
-      <ToDo task="learn react"></ToDo>
+      <ToDo task="learn react" isDone={false}></ToDo>
+      <ToDo task="learn py" isDone={true}></ToDo>
+      <ToDo task="take a shower" isDone={true}></ToDo>
       <Salami event="rojar eid"></Salami>
       <Student></Student>
       <Student></Student>
